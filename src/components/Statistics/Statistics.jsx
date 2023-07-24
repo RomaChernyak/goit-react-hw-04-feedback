@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import css from "./Statistics.module.css";
 
-export const Statistics = ({ state, buttons, total, positivePercentage }) => {
+export const Statistics = props => {
+    const { buttons, total, positivePercentage } = props;
     const pct = positivePercentage();
     
     const addEmoji = (pct) => {
@@ -27,7 +28,7 @@ export const Statistics = ({ state, buttons, total, positivePercentage }) => {
             {buttons.map((item, index) => (
                 <li key={index}>
                     <p>
-                        {item}: <span>{state[item.toLowerCase()]}</span>
+                        {item}: <span>{props[item.toLowerCase()]}</span>
                     </p>
                 </li>
             ))}
@@ -50,7 +51,9 @@ export const Statistics = ({ state, buttons, total, positivePercentage }) => {
 };
 
 Statistics.propTypes = {
-    state: PropTypes.objectOf(PropTypes.number),
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
     buttons: PropTypes.arrayOf(PropTypes.string),
     total: PropTypes.func,
     positivePercentage: PropTypes.func,
