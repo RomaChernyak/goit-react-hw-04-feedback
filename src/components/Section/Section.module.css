@@ -1,0 +1,15 @@
+.section {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    max-width: 300px;
+    margin: 48px auto;
+}
+
+.title {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
